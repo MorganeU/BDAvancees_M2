@@ -11,11 +11,14 @@ import java.util.List;
 
 @Controller
 public class ClientController {
+
     @Autowired
     private MsProductProxy msProductProxy;
+
     @RequestMapping("/")
     public String index(Model model) {
         List<ProductBean> products = msProductProxy.list();
+        System.out.println(products);
         model.addAttribute("products", products);
         return "index";
     }
