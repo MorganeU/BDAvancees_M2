@@ -1,5 +1,9 @@
-package com.example.cart;
+package com.example.cart.controller;
 
+import com.example.cart.Cart;
+import com.example.cart.CartItem;
+import com.example.cart.repository.CartItemRepository;
+import com.example.cart.repository.CartRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
