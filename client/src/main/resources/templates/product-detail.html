@@ -1,10 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
+    <img th:src="${product.illustration}" class="card-img-top" />
+    <p th:text= "${product.name}"></p>
+    <div>Prix : <p th:text= "${product.price}"></p></div>
+    <div>Description : <p th:text= "${product.description}"></p></div>
     <button>Add to cart</button>
 </body>
 </html>
