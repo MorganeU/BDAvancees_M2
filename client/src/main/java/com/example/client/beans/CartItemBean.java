@@ -5,8 +5,7 @@ public class CartItemBean {
     private Long productId;
     private Integer quantity;
 
-    public CartItemBean(Long id, Long productId, Integer quantity) {
-        this.id = id;
+    public CartItemBean(Long productId, Integer quantity) {
         this.productId = productId;
         this.quantity = quantity;
     }

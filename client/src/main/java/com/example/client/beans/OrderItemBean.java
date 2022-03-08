@@ -5,8 +5,7 @@ public class OrderItemBean {
     private Long productId;
     private Integer quantity;
 
-    public OrderItemBean(Long id, Long productId, Integer quantity) {
-        this.id = id;
+    public OrderItemBean(Long productId, Integer quantity) {
         this.productId = productId;
         this.quantity = quantity;
     }

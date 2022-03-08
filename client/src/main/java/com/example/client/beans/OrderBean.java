@@ -10,8 +10,7 @@ public class OrderBean {
     private int numberTotalOfProducts;
     private Date paidDate;
 
-    public OrderBean(Long id, List<OrderItemBean> products, int paidTotal, int numberTotalOfProducts, Date paidDate) {
-        this.id = id;
+    public OrderBean(List<OrderItemBean> products, int paidTotal, int numberTotalOfProducts, Date paidDate) {
         this.products = products;
         this.paidTotal = paidTotal;
         this.numberTotalOfProducts = numberTotalOfProducts;
