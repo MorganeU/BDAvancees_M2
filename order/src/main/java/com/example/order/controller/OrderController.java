@@ -39,25 +39,14 @@ public class OrderController {
     }
 
     @GetMapping(value = "order/{id}")
-    public Optional<Order> getOrder(@PathVariable Long id)
+    public ResponseEntity<Order> getOrder(@PathVariable Long id)
     {
         Optional<Order> order = orderRepository.findById(id);
         if (!order.isPresent()) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Couldn't get order");
         }
-        return order;
+        return new ResponseEntity<Order>(order.get(), HttpStatus.CREATED);
     }
 
-    @PostMapping(value = "order/{id}")
-    @Transactional
-    public ResponseEntity<OrderItem> addProductToOrder(@PathVariable Long id, @RequestBody OrderItem orderItem)
-    {
-        Order order = orderRepository.getOne(id);
-        if (order == null) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Couldn't get order");
-        }
-        order.addProduct(orderItem);
-        orderRepository.save(order);
-        return new ResponseEntity<OrderItem>(orderItem, HttpStatus.CREATED);
-    }
+
 }

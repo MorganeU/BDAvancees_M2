@@ -19,6 +19,4 @@ public interface MsOrderProxy {
     public ResponseEntity<OrderBean> createNewOrder(@RequestBody OrderBean orderData);
     @GetMapping(value = "/order/{id}")
     public Optional<OrderBean> getOrder(@PathVariable Long id);
-    @PostMapping(value = "/order/{id}")
-    public ResponseEntity<OrderItemBean> addProductToOrder(@PathVariable Long id, @RequestBody OrderItemBean orderItem);
 }

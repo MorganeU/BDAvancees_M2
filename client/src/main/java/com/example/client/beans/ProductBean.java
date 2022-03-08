@@ -7,8 +7,7 @@ public class ProductBean {
     private String illustration;
     private Double price;
 
-    public ProductBean(Long id, String name, String description, String illustration, Double price) {
-        this.id = id;
+    public ProductBean(String name, String description, String illustration, Double price) {
         this.name = name;
         this.description = description;
         this.illustration = illustration;
