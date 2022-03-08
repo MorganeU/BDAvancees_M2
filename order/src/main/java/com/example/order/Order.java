@@ -1,19 +1,32 @@
 package com.example.order;
 
-import com.example.order.beans.CartItemBean;
+import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 
+@Entity
 public class Order  {
+    @Id
+    @GeneratedValue
     private Long id;
-    private List<CartItemBean> products;
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<OrderItem> products;
     private int paidTotal;
     private int numberTotalOfProducts;
     private Date paidDate;
 
-    public Order(){}
+    public Order(){
+        int max = 234543;
+        Random random = new Random();
+        long id = random.nextLong()*(max);
+        this.id = id;
+        this.products = new ArrayList<>();
+        this.paidDate= new Date();
+    }
 
-    public Order(Long id, List<CartItemBean> products, int paidTotal, int numberOfProducts, Date paidDate) {
+    public Order(Long id, List<OrderItem> products, int paidTotal, int numberOfProducts, Date paidDate) {
         this.id = id;
         this.products = products;
         this.paidTotal = paidTotal;
@@ -29,11 +42,11 @@ public class Order  {
         this.id = id;
     }
 
-    public List<CartItemBean> getProducts() {
+    public List<OrderItem> getProducts() {
         return products;
     }
 
-    public void setProducts(List<CartItemBean> products) {
+    public void setProducts(List<OrderItem> products) {
         this.products = products;
     }
 
@@ -59,5 +72,9 @@ public class Order  {
 
     public void setPaidDate(Date paidDate) {
         this.paidDate = paidDate;
+    }
+
+    public void addProduct(OrderItem orderItem) {
+        products.add(orderItem);
     }
 }
