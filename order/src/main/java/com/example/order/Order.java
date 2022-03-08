@@ -6,7 +6,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
-@Entity
+@Entity(name = "ORDERS")
 public class Order  {
     @Id
     @GeneratedValue
