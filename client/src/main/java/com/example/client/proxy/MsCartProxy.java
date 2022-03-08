@@ -1,4 +1,4 @@
-package com.example.client.repository;
+package com.example.client.proxy;
 
 import com.example.client.beans.CartBean;
 import com.example.client.beans.CartItemBean;

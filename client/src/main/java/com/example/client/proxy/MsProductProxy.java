@@ -1,4 +1,4 @@
-package com.example.client.repository;
+package com.example.client.proxy;
 
 import com.example.client.beans.ProductBean;
 import org.springframework.cloud.openfeign.FeignClient;
