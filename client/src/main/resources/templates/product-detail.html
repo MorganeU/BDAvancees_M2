@@ -23,7 +23,9 @@
                     <div class="col-sm-8">
                         <div style="display: flex; margin-top: 20px">Prix :&nbsp;<p th:text= "${product.price}"></p>&nbsp;€</div>
                         <div>Description :&nbsp;<p th:text= "${product.description}"></p></div>
-                        <button type="button" class="btn btn-primary float-right" style="margin-top: 70px">Add to cart</button>
+                        <button type="button" class="btn btn-primary float-right" style="margin-top: 70px">
+                            <a th:href="@{|/addProduct/${product.id}/1|}">Add to cart</a>
+                        </button>
                     </div>
                 </div>
             </div>
