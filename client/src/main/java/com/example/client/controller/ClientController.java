@@ -43,7 +43,7 @@ public class ClientController {
     }
 
     @PostMapping(value ="/addProduct/{itemId}/{quantity}")
-    public void addItem(@PathVariable("itemId") Long itemId, @PathVariable("quantity") Integer quantity) {
+    public void addItem(@PathVariable Long itemId, @PathVariable Integer quantity) {
         CartItemBean newItem = new CartItemBean(itemId, quantity);
         msCartProxy.addProductToCart(itemId, newItem);
     }

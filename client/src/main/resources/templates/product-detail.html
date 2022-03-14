@@ -10,6 +10,8 @@
     <p th:text= "${product.name}"></p>
     <div>Prix : <p th:text= "${product.price}"></p></div>
     <div>Description : <p th:text= "${product.description}"></p></div>
-    <button>Add to cart</button>
+    <button>
+        <a th:href="@{|/addProduct/${product.id}/1|}">Add to cart</a>
+    </button>
 </body>
 </html>
