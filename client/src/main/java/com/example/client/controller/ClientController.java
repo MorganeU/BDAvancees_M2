@@ -1,14 +1,14 @@
 package com.example.client.controller;
 
+import com.example.client.beans.CartItemBean;
 import com.example.client.beans.ProductBean;
+import com.example.client.proxy.MsCartProxy;
 import com.example.client.proxy.MsProductProxy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
@@ -19,6 +19,9 @@ public class ClientController {
 
     @Autowired
     private MsProductProxy msProductProxy;
+
+    @Autowired
+    private MsCartProxy msCartProxy;
 
     @RequestMapping("/")
     public String index(Model model) {
@@ -37,5 +40,11 @@ public class ClientController {
         }
         model.addAttribute("product",productDetail.get());
         return "product-detail";
+    }
+
+    @PostMapping(value ="/addProduct/{itemId}/{quantity}")
+    public void addItem(@PathVariable("itemId") Long itemId, @PathVariable("quantity") Integer quantity) {
+        CartItemBean newItem = new CartItemBean(itemId, quantity);
+        msCartProxy.addProductToCart(itemId, newItem);
     }
 }
