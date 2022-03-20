@@ -45,6 +45,6 @@ public class ClientController {
     @PostMapping(value ="/addProduct/{itemId}/{quantity}")
     public void addItem(@PathVariable Long itemId, @PathVariable Integer quantity) {
         CartItemBean newItem = new CartItemBean(itemId, quantity);
-        msCartProxy.addProductToCart(itemId, newItem);
+        msCartProxy.addProductToCart((long) 0, newItem);  // temporairement on utilise un id de 0
     }
 }

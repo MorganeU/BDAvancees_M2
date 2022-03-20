@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.List;
 import java.util.Optional;
 
 import static org.springframework.http.HttpStatus.CREATED;
@@ -25,7 +26,7 @@ public class CartController {
     CartItemRepository cartItemRepository;
 
     @PostMapping(value = "/cart")
-    public ResponseEntity<Cart> createNewCart(@RequestBody Cart cartData)
+    public ResponseEntity<Cart> createNewCart() //@RequestBody Cart cartData
     {
         Cart cart = cartRepository.save(new Cart());
 
@@ -35,6 +36,12 @@ public class CartController {
         }
 
         return new ResponseEntity<Cart>(cart , CREATED);
+    }
+
+    @GetMapping(value = "/cart")
+    public List<Cart> getAllCart() {
+        List<Cart> productList = cartRepository.findAll();
+        return productList;
     }
 
     @GetMapping(value = "cart/{id}")

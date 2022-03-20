@@ -28,16 +28,16 @@
                     <div class="col-sm-8">
                         <div style="display: flex; margin-top: 20px">Prix :&nbsp;<p th:text= "${product.price}"></p>&nbsp;€</div>
                         <div>Description :&nbsp;<p th:text= "${product.description}"></p></div>
-                        <button type="button" class="btn btn-primary float-right shadow" data-bs-toggle="button" style="margin-top: 70px">
+                        <!-- le form ne fonctionne pas -->
+                        <!--<form th:action="@{|/addProduct/${product.id}/1|}" th:method="POST">-->
+                          <button type="submit" class="btn btn-primary float-right shadow" data-bs-toggle="button" style="margin-top: 70px">
                             Add to cart
-                        </button>
-                        <!--<form th:action="@{|/addProduct/${product.id}/1|}" th:method="POST">
-                            <input type="button" class="btn btn-primary float-right shadow" data-bs-toggle="button" style="margin-top: 70px" th:name="submit" th:type="submit" value="Add to cart">
-                        </form>--> 
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</body>
-</html>
+                          </button>
+                        <!--</form>-->
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </body>
+  </html>
